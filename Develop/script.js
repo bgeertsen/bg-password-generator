@@ -12,7 +12,7 @@ var passwordOptions = {
 
 function confirmLength() {
   passwordLength = 0;
-  while (passwordLength < 8 || passwordLength > 128) {
+  while (passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength)) {
     passwordLength = window.prompt("Pick a password legnth between 8 and 128 characters long.")
   }
 }
@@ -37,6 +37,8 @@ function generatePassword() {
   if (confirmNumeric) {
     characterPool += passwordOptions.numeric;
   }
+
+  console.log(characterPool[0]);
   for(var i = 0; i < passwordLength; i ++) {
     randomPassword += characterPool[getRandomInt(characterPool.length)];
   }
