@@ -38,6 +38,12 @@ function generatePassword() {
     characterPool += passwordOptions.numeric;
   }
 
+  if (!confirmLower && !confirmUpper && !confirmSpecial && !confirmNumeric) {
+    window.alert("You must pick at least 1 type of character.")
+    return "try again"
+  
+  }
+
   console.log(characterPool[0]);
   for(var i = 0; i < passwordLength; i ++) {
     randomPassword += characterPool[getRandomInt(characterPool.length)];
