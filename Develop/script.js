@@ -3,7 +3,7 @@ function getRandomInt (max) {
   return Math.floor(Math.random() * max);
 }
 
-var passwordChars = {
+var passwordOptions = {
   lower: "abcdefghijklmnopqrstuvxyz",
   upper: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
   special: "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~",
@@ -18,24 +18,29 @@ function confirmLength() {
 }
 
 function generatePassword() {
-  var phrase = ""
+  var randomPassword = ""
+  var characterPool = ""
   confirmLength();
-  var confirmUpper = window.confirm("Does the password require upper case characters in the password?")
+  var confirmLower = window.confirm("Does the password require lower-case characters?")
+  var confirmUpper = window.confirm("Does the password require upper-case characters?")
   var confirmSpecial = window.confirm("Does the password require special characters?")
   var confirmNumeric = window.confirm("Does the password require numeric characters?")
+  if (confirmLower) {
+    characterPool += passwordOptions.lower;
+  }
   if (confirmUpper) {
-    passwordChars.lower += passwordChars.upper;
+    characterPool += passwordOptions.upper;
   }
   if (confirmSpecial) {
-    passwordChars.lower += passwordChars.special;
+    characterPool += passwordOptions.special;
   }
   if (confirmNumeric) {
-    passwordChars.lower += passwordChars.numeric;
+    characterPool += passwordOptions.numeric;
   }
   for(var i = 0; i < passwordLength; i ++) {
-    phrase += passwordChars.lower[getRandomInt(passwordChars.lower.length)];
+    randomPassword += characterPool[getRandomInt(characterPool.length)];
   }
-  return phrase;
+  return randomPassword;
 }
 
 // Get references to the #generate element
