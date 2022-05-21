@@ -44,6 +44,15 @@ function generatePassword() {
   
   }
 
+    
+    // function suffle(){
+  //   var randomPool = characterPool.split(' ');
+  //   randomPool.sort(function() {
+  
+  //   })
+
+  // }
+
   console.log(characterPool[0]);
   for(var i = 0; i < passwordLength; i ++) {
     randomPassword += characterPool[getRandomInt(characterPool.length)];
