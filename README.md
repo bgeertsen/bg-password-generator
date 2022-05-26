@@ -17,3 +17,6 @@ Then I created a loop that iterates through each time for the selected password 
 Each time through the loop it selects a random character from the pool of selected options.
 
 At the end of the generatePassword function it returns the randomly created password based on the users criteria. The given functions in the starter code then trigger the functions I wrote and displays the end result in the box.
+
+
+![Alt text](./assets/password-generator-screenshot.jpg?raw=true "Screen Shot")
